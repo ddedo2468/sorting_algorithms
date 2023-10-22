@@ -1,8 +1,22 @@
 #include "sort.h"
 
-int partition(int* array, size_t size, int left, int right);
-void recursive_sort(int* array, size_t size, int left, int right);
-void quick_sort(int* array, size_t size);
+int partition(int *array, size_t size, int left, int right);
+void recursive_sort(int *array, size_t size, int left, int right);
+void quick_sort(int *array, size_t size);
+
+/**
+ * swap - swaping 2 elements of an array
+ * @a: an element to swap with b
+ * @b: an element to swap with a
+ */
+void swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
 /**
  * partition - ordering a subset of an array.
@@ -12,9 +26,9 @@ void quick_sort(int* array, size_t size);
  * @right: array last element.
  * Return: The pivot position.
  */
-int partition(int* array, size_t size, int left, int right)
+int partition(int *array, size_t size, int left, int right)
 {
-	int* pivot, i, j;
+	int *pivot, i, j;
 
 	pivot = array + right;
 	for (i = j = left; j < right; j++)
@@ -48,7 +62,7 @@ int partition(int* array, size_t size, int left, int right)
  *
  * Description: Uses the Lomuto partition scheme.
  */
-void recursive_sort(int* array, size_t size, int left, int right)
+void recursive_sort(int *array, size_t size, int left, int right)
 {
 	int part;
 
@@ -61,15 +75,12 @@ void recursive_sort(int* array, size_t size, int left, int right)
 }
 
 /**
- * quick_sort - Sort an array of integers in ascending
- *              order using the quicksort algorithm.
+ * quick_sort - Sort an array of integers.
  * @array: An array of integers.
  * @size: The size of the array.
- *
- * Description: Uses the Lomuto partition scheme. Prints
- *              the array after each swap of two elements.
+ * Description: Uses the Lomuto partition scheme.
  */
-void quick_sort(int* array, size_t size)
+void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;

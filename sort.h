@@ -22,8 +22,6 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
-/* utilities functions */
-void swap(int*a, int *b);
 
 /*prototypes declaration*/
 void print_array(const int *array, size_t size);
